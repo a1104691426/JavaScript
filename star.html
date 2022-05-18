@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Star(uname, type, blood) {
+            this.name = uname;
+            this.type = type;
+            this.blood = blood;
+
+            this.attack = function(attack) {
+                console.log(attack);
+            }
+        }
+        var lp = new Star('廉颇', '力量型', 500);
+
+        console.log(lp.name);
+        console.log(lp.type);
+        lp.attack('近战');
+
+        var hy = new Star('后羿', '射手型', 200);
+        hy.attack('远程');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

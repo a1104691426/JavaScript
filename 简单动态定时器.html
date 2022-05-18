@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        
+        span {
+            position: absolute;
+            left: 0;
+            top: 300px;
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="bt500">点击走500</button>
+    <button class="bt800">点击走800</button>
+    <div></div>
+    <span></span>
+    <script>
+        var btt500 = document.querySelector('.bt500');
+        var btt800 = document.querySelector('.bt800');
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step); //取整 Math.ceil
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15)
+        }
+        animate(div, 200);
+        btt500.addEventListener('click', function() {
+            animate(span, 500);
+        });
+        btt800.addEventListener('click', function() {
+            animate(span, 800, function() {
+                span.style.background = 'pink';
+            });
+        });
+    </script>
+</body>
+
+</html>

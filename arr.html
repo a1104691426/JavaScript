@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getRandom(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        }
+        var num = getRandom(1, 50);
+        for (var i = 0; i <= 10; i++) {
+            var num0 = prompt('请输入？1-50的数字');
+            if (num0 > num) {
+                alert('你输入的数字太大了');
+            } else if (num0 < num) {
+                alert('你输入的数字太小了');
+
+            } else {
+                alert('恭喜你猜正确了！');
+                break;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
